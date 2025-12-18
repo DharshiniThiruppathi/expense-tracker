@@ -1,0 +1,92 @@
+/* User Dashboard styling */
+.card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+  width: 340px;
+  justify-content: center;
+  margin-top: 40px;
+  
+}
+
+input,textarea, button {
+  width: 85%;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 8px;
+  border: 1px solid #b2bec3;
+}
+select{
+  width: 89%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 2px solid #b2bec3;
+}
+
+button {
+  background: #6c5ce7;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 9px;
+  text-align: center;
+  width: 80px;
+}
+
+button:hover {
+  background: #341f97;
+}
+
+textarea {
+  resize: none;
+}
+
+.table-container {
+  margin-top: 20px;
+  
+}
+
+table {
+  width: 70%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  background: white;
+}
+
+table th, table td {
+  border: 1px solid #dfe6e9;
+  padding: 10px;
+  text-align: center;
+}
+
+table th {
+  background: #6c5ce7;
+  color: white;
+}
+
+.search {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+  width:390px;
+}
+
+.pagination button {
+  padding: 8px 15px;
+  border-radius: 5px;
+  background: #6c5ce7;
+  color: black;
+  border: none;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.pagination button:disabled {
+  background: #a29bfe;
+  cursor: not-allowed;
+}

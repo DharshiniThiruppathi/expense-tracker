@@ -1,0 +1,68 @@
+/* Admin Dashboard styling */
+.table-container {
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  background: white;
+}
+
+table th, table td {
+  border: 1px solid #dfe6e9;
+  padding: 10px;
+  text-align: center;
+}
+
+table th {
+  background: #6c5ce7;
+  color: white;
+}
+
+button {
+  padding: 4px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 2px;
+  border: none;
+  width:80px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:first-of-type {
+  background: #00b894;
+  color: white;
+}
+
+button:last-of-type {
+  background: #d63031;
+  color: white;
+}
+
+.search {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+  width:380px;
+}
+
+.pagination button {
+  padding: 8px 15px;
+  border-radius: 6px;
+  background: #6c5ce7;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-left:2px ;
+}
+
+.pagination button:disabled {
+  background: #a29bfe;
+  cursor: not-allowed;
+}

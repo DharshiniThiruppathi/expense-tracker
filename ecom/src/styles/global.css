@@ -1,0 +1,105 @@
+body, html{
+  margin:0; padding:0; font-family: Arial, sans-serif;
+}
+.page{
+  min-height: 100vh;
+  background: linear-gradient(135deg,#89f7fe,#66a6ff);
+  padding:20px;
+}
+.center{
+  display:flex; justify-content:center; align-items:center; min-height:100vh;
+}
+.card{
+  background:white;
+}
+/* ===== NAVBAR ===== */
+.navbar {
+  width:98%;
+  height: 30px;;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2d3436;
+  color: white;
+  padding: 18px 25px;
+  margin-top: 0%;
+  margin-left: 0%;
+  overflow: visible;
+}
+
+.navbar-title {
+  margin: 0;
+  font-weight: 500;
+  justify-content: space-between;
+}
+.nav-left h2 {
+  font-size: 22px;
+}
+
+/* CENTER MENU */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  right:90px;
+  overflow: visible;
+}
+
+/* ===== PROFILE ICON ===== */
+.profile {
+right: 40px;
+  width: 45px;
+  height: 45px;
+  border-radius: 60%;
+  background: #6c5ce7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: 100px;
+  overflow: visible;
+}
+
+/* ===== LOGOUT TOAST ===== */
+.logout-toast {
+  text-align: center;
+}
+
+.toast-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.btn-ok {
+  background: #00b894;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background: #d63031;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-ok:hover,
+.btn-cancel:hover {
+  opacity: 0.9;
+}

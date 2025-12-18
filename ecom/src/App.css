@@ -1,0 +1,173 @@
+.page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #74ebd5, #9face6);
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2d3436;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #6c5ce7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+  width: 330px
+}
+
+.expense-table {
+  width: 90%;
+  border-collapse: collapse;
+  border: 3px solid #6c5ce7;
+  margin-top: 20px;
+}
+
+.expense-table th,
+.expense-table td {
+  border: 1px solid #dfe6e9;
+  padding: 10px;
+  text-align: center;
+}
+
+.expense-table th {
+  background: #6c5ce7;
+  color: white;
+}
+
+.approve {
+  background: #00b894;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin: 2px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.decline {
+  background: #d63031;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin: 2px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.view {
+  background: #fdcb6e;
+  border: none;
+  padding: 5px 10px;
+  margin: 2px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+input,
+select,
+textarea {
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: 1px solid #b2bec3;
+  width: 90%;
+}
+.delete {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+  border: black;
+  border-radius: 5px;
+  padding: 8px 15px;
+  background: #00b894;
+  font-weight: "bold";
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+h2,
+h3 {
+  margin: 0 0 10px 0;
+  font-weight: 200;
+}
+
+p {
+  cursor: pointer;
+  color: #b30707;
+  text-decoration: underline;
+  margin-top: 10px;
+  background: #3fd0db;
+}
+
+textarea {
+  resize: none;
+}
+.users-table { 
+  width: 90%; 
+  border-collapse: collapse; 
+  margin-top: 10px; 
+  border-radius: 10px; 
+  overflow: hidden; 
+}
+.users-table th, .users-table td { 
+  border: 1px solid #dfe6e9; 
+  padding: 10px; 
+  text-align: center; 
+  background: white; 
+}
+.users-table th { 
+  background: #6c5ce7; 
+  color: white; 
+}
