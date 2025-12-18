@@ -3,7 +3,6 @@ import Navbar from "./Navbar";
 import Pagination from "./Pagination";
 import { toast } from "react-toastify";
 import "../styles/admin.css";
-
 export default function AdminDashboard({
   currentUser,
   users,
@@ -16,10 +15,8 @@ export default function AdminDashboard({
   const [sort, setSort] = useState("");
   const [filterCategory, setFilterCategory] = useState("select items");
   const [currentPage, setCurrentPage] = useState(1);
-  const [activePage, setActivePage] = useState("home"); // ✅ NEW
-
+  const [activePage, setActivePage] = useState("home"); 
   const itemsPerPage = 5;
-
   const updateStatus = (id, status) => {
     setExpenses(expenses.map(e => (e.id === id ? { ...e, status } : e)));
     toast.success(`Expense ${status}`);
@@ -40,13 +37,10 @@ export default function AdminDashboard({
 
   const expensesLast = currentPage * itemsPerPage;
   const expensesFirst = expensesLast - itemsPerPage;
-
   const usersLast = currentPage * itemsPerPage;
   const usersFirst = usersLast - itemsPerPage;
-
-  return (
+ return (
     <div className="page">
-      {/* ✅ NAVBAR WITH NAVIGATION */}
       <Navbar
         title="💳 Admin Dashboard"
         currentUser={currentUser}
@@ -54,8 +48,6 @@ export default function AdminDashboard({
         onNavigate={setActivePage}
       /> <br></br>
       <br></br>
-
-      {/* ================= HOME PAGE ================= */}
       {activePage === "home" && (
         <>
           {/* Search & Filter */}
@@ -198,8 +190,6 @@ export default function AdminDashboard({
           </div>
         </>
       )}
-
-      {/* ================= REPORTS PAGE ================= */}
       {activePage === "reports" && (
         <div className="table-container">
           <h3>Expense Reports</h3>
@@ -230,3 +220,4 @@ export default function AdminDashboard({
     </div>
   );
 }
+
