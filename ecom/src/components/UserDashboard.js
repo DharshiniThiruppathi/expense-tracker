@@ -3,16 +3,13 @@ import Navbar from "./Navbar";
 import Pagination from "./Pagination";
 import { toast } from "react-toastify";
 import "../styles/user.css";
-
 export default function UserDashboard({
   currentUser,
   expenses,
   setExpenses,
   handleLogout
 }) {
-  // 🔹 NEW: navigation state
   const [activeTab, setActiveTab] = useState("home");
-
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("Select items");
   const [date, setDate] = useState("");
@@ -22,15 +19,11 @@ export default function UserDashboard({
   const [sort, setSort] = useState("");
   const [filterCategory, setFilterCategory] = useState("Select items");
   const [currentPage, setCurrentPage] = useState(1);
-
   const itemsPerPage = 5;
-
-  // 🔹 EXISTING FUNCTION (UNCHANGED)
   const addExpense = () => {
     if (!title || !amount || !date) {
       return toast.error("Enter all details");
     }
-
     const newExp = {
       id: Date.now(),
       username: currentUser.username,
@@ -51,8 +44,6 @@ export default function UserDashboard({
     setDate("");
     setDesc("");
   };
-
-  // 🔹 EXISTING FILTER LOGIC (UNCHANGED)
   const filteredExpenses = expenses
     .filter(e => e.username === currentUser.username)
     .filter(e => e.title.toLowerCase().includes(search.toLowerCase()))
@@ -74,7 +65,6 @@ export default function UserDashboard({
 
   return (
     <div className="page">
-      {/* 🔹 NAVBAR (ADDED ONLY) */}
       <Navbar
         title="💳 User Dashboard"
         currentUser={currentUser}
@@ -82,8 +72,6 @@ export default function UserDashboard({
         onNavigate={setActiveTab}
       /><br></br>
       <br></br>
-
-      {/* ================= HOME TAB ================= */}
       {activeTab === "home" && (
         <>
           {/* Add Expense */}
@@ -140,8 +128,6 @@ export default function UserDashboard({
               </button>
             </div>
           </div>
-
-          {/* Search & Filter */}
           <div className="search">
             <input
               placeholder="🔎Search title"
@@ -164,8 +150,6 @@ export default function UserDashboard({
               <option value="amtLow">Amount Low → High</option>
             </select>
           </div>
-
-          {/* Expenses Table */}
           <div className="table-container">
             <table>
               <thead>
@@ -200,8 +184,6 @@ export default function UserDashboard({
           />
         </>
       )}
-
-      {/* ================= REPORTS TAB ================= */}
       {activeTab === "reports" && (
         <div className="table-container">
           <h3>User Expense Report</h3>
@@ -236,3 +218,4 @@ export default function UserDashboard({
     </div>
   );
 }
+
