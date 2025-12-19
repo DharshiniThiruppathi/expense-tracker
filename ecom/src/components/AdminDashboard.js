@@ -9,29 +9,48 @@ export default function AdminDashboard({
   setUsers,
   expenses,
   setExpenses,
-  handleLogout
+  handleLogout,
 }) {
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
   const [filterCategory, setFilterCategory] = useState("select items");
   const [currentPage, setCurrentPage] = useState(1);
-  const [activePage, setActivePage] = useState("home"); 
+  const [activePage, setActivePage] = useState("home");
+  const [reportSearch, setReportSearch] = useState("");
+  const [reportCategory, setReportCategory] = useState("Select items");
+  const [reportSort, setReportSort] = useState("");
   const itemsPerPage = 5;
   const updateStatus = (id, status) => {
-    setExpenses(expenses.map(e => (e.id === id ? { ...e, status } : e)));
+    setExpenses(expenses.map((e) => (e.id === id ? { ...e, status } : e)));
     toast.success(`Expense ${status}`);
   };
-
   const filteredExpenses = expenses
-    .filter(e => e.title.toLowerCase().includes(search.toLowerCase()))
+    .filter((e) => e.title.toLowerCase().includes(search.toLowerCase()))
     .filter(
-      e => filterCategory === "select items" || e.category === filterCategory
+      (e) => filterCategory === "select items" || e.category === filterCategory
     )
     .sort((a, b) => {
       if (sort === "dateNew") return new Date(b.date) - new Date(a.date);
       if (sort === "dateOld") return new Date(a.date) - new Date(b.date);
       if (sort === "amtHigh") return b.amount - a.amount;
       if (sort === "amtLow") return a.amount - b.amount;
+      return 0;
+    }); 
+
+  const reportFilteredExpenses = expenses
+    .filter(
+      (e) =>
+        e.title.toLowerCase().includes(reportSearch.toLowerCase()) ||
+        e.username.toLowerCase().includes(reportSearch.toLowerCase())
+    )
+    .filter(
+      (e) => reportCategory === "Select items" || e.category === reportCategory
+    )
+    .sort((a, b) => {
+      if (reportSort === "dateNew") return new Date(b.date) - new Date(a.date);
+      if (reportSort === "dateOld") return new Date(a.date) - new Date(b.date);
+      if (reportSort === "amtHigh") return b.amount - a.amount;
+      if (reportSort === "amtLow") return a.amount - b.amount;
       return 0;
     });
 
@@ -46,24 +65,25 @@ export default function AdminDashboard({
         currentUser={currentUser}
         handleLogout={handleLogout}
         onNavigate={setActivePage}
-      /> <br></br>
-      <br></br>
+      />
+
+      <br />
+      <br />
       {activePage === "home" && (
         <>
-          {/* Search & Filter */}
           <div className="search">
             <input
               placeholder=" 🔎Search title"
-              onChange={e => setSearch(e.target.value)}
+              onChange={(e) => setSearch(e.target.value)}
             />
-            <select onChange={e => setFilterCategory(e.target.value)}>
+            <select onChange={(e) => setFilterCategory(e.target.value)}>
               <option>select items</option>
               <option>Hardware</option>
               <option>Software</option>
               <option>Travel</option>
               <option>Others</option>
             </select>
-            <select onChange={e => setSort(e.target.value)}>
+            <select onChange={(e) => setSort(e.target.value)}>
               <option value="">Sort</option>
               <option value="dateNew">Date New → Old</option>
               <option value="dateOld">Date Old → New</option>
@@ -72,7 +92,6 @@ export default function AdminDashboard({
             </select>
           </div>
 
-          {/* Expenses Table */}
           <div className="table-container">
             <h3>All Expenses</h3>
             <table>
@@ -91,9 +110,9 @@ export default function AdminDashboard({
               <tbody>
                 {filteredExpenses
                   .slice(expensesFirst, expensesLast)
-                  .map(e => {
+                  .map((e) => {
                     const userExp = expenses.filter(
-                      x => x.username === e.username
+                      (x) => x.username === e.username
                     );
                     return (
                       <tr key={e.id}>
@@ -104,11 +123,15 @@ export default function AdminDashboard({
                         <td>{e.date}</td>
                         <td>{e.status}</td>
                         <td>
-                          <button onClick={() => updateStatus(e.id, "Approved")}>
+                          <button
+                            onClick={() => updateStatus(e.id, "Approved")}
+                          >
                             Approve
                           </button>
                           <br />
-                          <button onClick={() => updateStatus(e.id, "Declined")}>
+                          <button
+                            onClick={() => updateStatus(e.id, "Declined")}
+                          >
                             Decline
                           </button>
                         </td>
@@ -116,9 +139,7 @@ export default function AdminDashboard({
                           <button
                             onClick={() =>
                               alert(
-                                `User: ${e.username}\nTotal Expenses: ${
-                                  userExp.length
-                                }\n` +
+                                `User: ${e.username}\nTotal Expenses: ${userExp.length}\n` +
                                   userExp
                                     .map(
                                       (x, i) =>
@@ -136,6 +157,7 @@ export default function AdminDashboard({
                   })}
               </tbody>
             </table>
+
             <Pagination
               currentPage={currentPage}
               total={filteredExpenses.length}
@@ -144,7 +166,6 @@ export default function AdminDashboard({
             />
           </div>
 
-          {/* Registered Users Table */}
           <div className="table-container">
             <h3>Registered Users</h3>
             <table>
@@ -156,19 +177,17 @@ export default function AdminDashboard({
                 </tr>
               </thead>
               <tbody>
-                {users.slice(usersFirst, usersLast).map(u => (
+                {users.slice(usersFirst, usersLast).map((u) => (
                   <tr key={u.username}>
                     <td>{u.username}</td>
                     <td>{u.password}</td>
                     <td>
                       <button
                         onClick={() => {
-                          if (
-                            window.confirm(`Delete user ${u.username}?`)
-                          ) {
+                          if (window.confirm(`Delete user ${u.username}?`)) {
                             setUsers(
                               users.filter(
-                                user => user.username !== u.username
+                                (user) => user.username !== u.username
                               )
                             );
                           }
@@ -181,6 +200,7 @@ export default function AdminDashboard({
                 ))}
               </tbody>
             </table>
+
             <Pagination
               currentPage={currentPage}
               total={users.length}
@@ -191,33 +211,57 @@ export default function AdminDashboard({
         </>
       )}
       {activePage === "reports" && (
-        <div className="table-container">
-          <h3>Expense Reports</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>User</th>
-                <th>Title</th>
-                <th>Date</th>
-                <th>Amount</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {expenses.map(e => (
-                <tr key={e.id}>
-                  <td>{e.username}</td>
-                  <td>{e.title}</td>
-                  <td>{e.date}</td>
-                  <td>₹{e.amount}</td>
-                  <td>{e.status}</td>
+        <>
+          <div className="table-container">
+            <h3>Expense Reports</h3>
+            <div className="search">
+            <input
+              placeholder=" 🔎Search user"
+              onChange={(e) => setReportSearch(e.target.value)}
+            />
+            <select onChange={(e) => setReportCategory(e.target.value)}>
+              <option>Select items</option>
+              <option>Hardware</option>
+              <option>Software</option>
+              <option>Travel</option>
+              <option>Others</option>
+            </select>
+
+            <select onChange={(e) => setReportSort(e.target.value)}>
+              <option value="">Sort</option>
+              <option value="dateNew">Date New → Old</option>
+              <option value="dateOld">Date Old → New</option>
+              <option value="amtHigh">Amount High → Low</option>
+              <option value="amtLow">Amount Low → High</option>
+            </select>
+          </div>
+          <div className="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Title</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Status</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {reportFilteredExpenses.map((e) => (
+                  <tr key={e.id}>
+                    <td>{e.username}</td>
+                    <td>{e.title}</td>
+                    <td>{e.date}</td>
+                    <td>₹{e.amount}</td>
+                    <td>{e.status}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          </div>
+        </>
       )}
     </div>
   );
 }
-
