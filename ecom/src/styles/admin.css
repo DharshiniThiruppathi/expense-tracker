@@ -1,13 +1,10 @@
-/* Admin Dashboard styling */
 .table-container {
   margin-top: 20px;
 }
 
 table {
-  width: 100%;
   border-collapse: collapse;
   border-radius: 10px;
-  overflow: hidden;
   background: white;
 }
 
@@ -18,7 +15,7 @@ table th, table td {
 }
 
 table th {
-  background: #6c5ce7;
+  background: #040405;
   color: white;
 }
 
@@ -41,7 +38,7 @@ button:first-of-type {
 }
 
 button:last-of-type {
-  background: #d63031;
+  background: #FF5656;
   color: white;
 }
 
@@ -55,14 +52,50 @@ button:last-of-type {
 .pagination button {
   padding: 8px 15px;
   border-radius: 6px;
-  background: #6c5ce7;
+  background: #E37434;
   color: white;
   border: none;
-  cursor: pointer;
-  margin-left:2px ;
+  cursor: not-allowed;
+  margin-left:center ;
 }
 
 .pagination button:disabled {
-  background: #a29bfe;
+  background: #E37434;
   cursor: not-allowed;
+}
+.table-scroll {
+  max-height: 300px;        
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 12px;
+}
+
+.table-scroll table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.table-scroll thead th {
+  position: sticky;
+  top: 0;
+  background: #040405;
+  color: white;
+  z-index: 2;
+}
+
+.table-scroll th,
+.table-scroll td {
+  border: 1px solid #dfe6e9;
+  padding: 10px;
+  text-align: center;
+}
+
+.table-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.table-scroll::-webkit-scrollbar-thumb {
+  background: #989696;
+  border-radius: 10px;
 }
