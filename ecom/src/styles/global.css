@@ -2,7 +2,7 @@ body, html{
   margin:0; padding:0; font-family: Arial, sans-serif;
 }
 .page{
-  min-height: 100vh;
+  min-height: 150vh;
   background: linear-gradient(135deg,#89f7fe,#66a6ff);
   padding:20px;
 }
@@ -12,7 +12,6 @@ body, html{
 .card{
   background:white;
 }
-/* ===== NAVBAR ===== */
 .navbar {
   width:98%;
   height: 30px;;
@@ -22,12 +21,14 @@ body, html{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #2d3436;
+  background: #00809D;
   color: white;
+  font-size: 19px;
   padding: 18px 25px;
   margin-top: 0%;
   margin-left: 0%;
   overflow: visible;
+  cursor: pointer;
 }
 
 .navbar-title {
@@ -36,29 +37,36 @@ body, html{
   justify-content: space-between;
 }
 .nav-left h2 {
-  font-size: 22px;
+  font-size: 25px;
 }
-
-/* CENTER MENU */
 .nav-menu {
+ right: 390px;
   list-style: none;
   display: flex;
-  gap: 30px;
+  gap: 35px;
+  margin-left: auto;
+}
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color:#F6F3C2
 }
 .nav-right {
   display: flex;
-  align-items: center;
-  right:90px;
+  align-items:right;
+  right:390px;
   overflow: visible;
 }
-
-/* ===== PROFILE ICON ===== */
 .profile {
 right: 40px;
   width: 45px;
   height: 45px;
   border-radius: 60%;
-  background: #6c5ce7;
+  background: #C59560;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -69,11 +77,9 @@ right: 40px;
   overflow: visible;
 }
 
-/* ===== LOGOUT TOAST ===== */
 .logout-toast {
   text-align: center;
 }
-
 .toast-actions {
   display: flex;
   gap: 10px;
@@ -103,3 +109,17 @@ right: 40px;
 .btn-cancel:hover {
   opacity: 0.9;
 }
+.table-scroll {
+  max-height: 320px;       
+  overflow-y: auto;
+  border-radius: 12px;
+}
+.table-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.table-scroll::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}
+
