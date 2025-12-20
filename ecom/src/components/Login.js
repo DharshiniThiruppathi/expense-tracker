@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-
 export default function Login({ setPage, setCurrentUser, users }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
-
-  const handleLogin = () => {
+ const handleLogin = () => {
     if (!username || !password || !role) return toast.error("Fill all fields");
 
     if (role === "admin") {
@@ -27,11 +25,10 @@ export default function Login({ setPage, setCurrentUser, users }) {
     toast.success("User login successful");
     setPage("user");
   };
-
-  return (
+ return (
     <div className="page center">
       <div className="card">
-        <h2>Login</h2>
+        <h2 style={{textAlign:'center'}}>Login</h2>
         <input placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} />
         <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
         <select value={role} onChange={e => setRole(e.target.value)}>
@@ -40,7 +37,7 @@ export default function Login({ setPage, setCurrentUser, users }) {
           <option value="admin">Admin</option><br></br>
         </select> <br></br>
         <button onClick={handleLogin}>Login</button>
-        <p onClick={() => setPage("register")}>Register</p>
+        <p style={{marginTop:'10px',  textAlign:'center',fontSize:'0.8rem',fontWeight:'bolder',cursor:'pointer'}}onClick={() => setPage("register")}>Are You New here ? Register now</p>
       </div>
     </div>
   );
