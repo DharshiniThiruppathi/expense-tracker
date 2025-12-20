@@ -1,5 +1,4 @@
 import React from "react";
-
 export default function Pagination({ currentPage, total, itemsPerPage, setCurrentPage }) {
   return (
     <div className="pagination">
