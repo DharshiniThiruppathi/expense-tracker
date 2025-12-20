@@ -1,7 +1,6 @@
 import React from "react";
 import { toast } from "react-toastify";
 import "../styles/global.css";
-
 export default function Navbar({ title, currentUser, handleLogout, onNavigate }) {
   const handleProfileClick = () => {
     toast(
@@ -34,18 +33,16 @@ export default function Navbar({ title, currentUser, handleLogout, onNavigate })
 
   return (
     <nav className="navbar">
-      {/* LEFT */}
       <div className="nav-left">
         <h2>{title}</h2>
       </div>
-
-      {/* CENTER */}
+      <div className="nav-center">
+    📱COMPANY EXPENSE TRACKER
+  </div>
       <ul className="nav-menu">
         <li onClick={() => onNavigate("home")}>Home</li>
         <li onClick={() => onNavigate("reports")}>Reports</li>
       </ul>
-
-      {/* RIGHT */}
       <div className="nav-right">
         <div className="profile" onClick={handleProfileClick}>
           {currentUser.username[0].toUpperCase()}
