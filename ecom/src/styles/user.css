@@ -1,11 +1,10 @@
-/* User Dashboard styling */
 .card {
   background: #ffffff;
   padding: 25px;
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   margin-bottom: 20px;
-  width: 340px;
+  width: 360px;
   justify-content: center;
   margin-top: 40px;
   
@@ -51,21 +50,20 @@ textarea {
 }
 
 table {
-  width: 70%;
+  width: 100%;
   border-collapse: collapse;
   border-radius: 10px;
-  overflow: hidden;
   background: white;
 }
 
 table th, table td {
   border: 1px solid #dfe6e9;
-  padding: 10px;
+  padding: 15px;
   text-align: center;
 }
 
 table th {
-  background: #6c5ce7;
+  background: #040407;
   color: white;
 }
 
@@ -79,7 +77,7 @@ table th {
 .pagination button {
   padding: 8px 15px;
   border-radius: 5px;
-  background: #6c5ce7;
+  background: #5c7ce7;
   color: black;
   border: none;
   cursor: pointer;
@@ -90,3 +88,70 @@ table th {
   background: #a29bfe;
   cursor: not-allowed;
 }
+.dashboard-layout {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.left-panel {
+  width: 35%;
+}
+
+.right-panel {
+  width: 65%;
+}
+
+@media (max-width: 900px) {
+  .dashboard-layout {
+    flex-direction: column;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+  }
+}
+.table-scroll {
+  height: 190px;        
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 12px;
+}
+
+.table-scroll table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.table-scroll thead th {
+  position: sticky;
+  top: 0;
+  background: #040405;
+  color: white;
+  z-index: 2;
+}
+
+.table-scroll th,
+.table-scroll td {
+  border: 1px solid #dfe6e9;
+  padding: 10px;
+  text-align: center;
+}
+
+.table-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.table-scroll::-webkit-scrollbar-thumb {
+  background: #989696;
+  border-radius: 10px;
+}
+.page {
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+
